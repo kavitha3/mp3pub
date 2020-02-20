@@ -1,7 +1,6 @@
-FROM python:3
-ADD classify.py /
-RUN pip install numpy
-RUN pip install torch
-RUN pip install torchvision
+FROM python:alpine3.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
 EXPOSE 80
-CMD [ "python", "./classify.py" ]
+CMD python, ./classify.py
