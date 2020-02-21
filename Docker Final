@@ -1,0 +1,11 @@
+  
+FROM python:3
+WORKDIR /usr/src/app
+COPY classify.py
+RUN pip install --upgrade pip
+RUN pip install numpy==1.14.3 torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+EXPOSE 8080
+ENV DATASET = mnist
+ENV TYPE = ff
+CMD ["python","classify.py"]
+COPY. .
