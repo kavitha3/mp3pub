@@ -1,0 +1,12 @@
+FROM python:3
+WORKDIR /usr/src/app
+COPY requirements.txt .
+COPY classify.py .
+RUN pip install --upgrade pip
+RUN pip install numpy
+RUN pip install torch==1.4.0+cpu
+RUN pip install torchvision==0.5.0+cpu -f 
+ENV DATASET = "mnist"
+ENV TYPE = "ff"
+CMD ["python","classify.py"]
+COPY . .
