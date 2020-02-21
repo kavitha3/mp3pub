@@ -6,5 +6,5 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 ENV DATASET = "mnist"
 ENV TYPE = "ff"
+CMD ["python","classify.py"]
 COPY . .
-CMD ["python","classify.py"] 
