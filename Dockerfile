@@ -1,6 +1,6 @@
 FROM python:3
 WORKDIR /usr/src/app
-COPY requirement.txt .
+COPY requirements.txt .
 COPY classify.py .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
