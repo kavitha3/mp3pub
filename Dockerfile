@@ -1,6 +1,8 @@
-FROM python:alpine3.7
-COPY . /app
-WORKDIR /app
+FROM python:3.6.3
+WORKDIR /usr/src/app
+COPY requirement.txt .
+COPY classify.py .
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-EXPOSE 80
-CMD python, ./classify.py
+COPY . .
+CMD ["python","classify.py","mnist", "ff"] 
